@@ -1,25 +1,25 @@
 class JjDesc < Formula
   desc "Generate jj commit descriptions using LLM"
   homepage "https://github.com/tumf/jj-desc"
-  version "0.4.0"
+  version "0.4.3"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/tumf/jj-desc/releases/download/v0.4.0/jj-desc-aarch64-apple-darwin.tar.xz"
-      sha256 "d2d74a3838c360daa694a2a3e4ff6cd3811e5ccd682a8e4af6322a69b2c1f4ac"
+      url "https://github.com/tumf/jj-desc/releases/download/v0.4.3/jj-desc-aarch64-apple-darwin.tar.xz"
+      sha256 "759c1d740be87b807baa6a4c0a85e47903da7817fcff3b20c4cff0fc2843b4a4"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/tumf/jj-desc/releases/download/v0.4.0/jj-desc-x86_64-apple-darwin.tar.xz"
-      sha256 "7a92223c68d1ee79645ad8708abd7e475fb4e7421a02bf40e21d87495d6e4e28"
+      url "https://github.com/tumf/jj-desc/releases/download/v0.4.3/jj-desc-x86_64-apple-darwin.tar.xz"
+      sha256 "02eca9ccc4d4c6f394f7b7acef30ccf86b6319df4757a425fd0851290effd8ec"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/tumf/jj-desc/releases/download/v0.4.0/jj-desc-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "49f6df5d3c13fa13c6e3af9c86f8bef338bc2812cd10d9a262514232fc224e1f"
+      url "https://github.com/tumf/jj-desc/releases/download/v0.4.3/jj-desc-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "97800306a093b9f53b74ce520fef696ba94134fff016ca5317075c776cc0a26a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/tumf/jj-desc/releases/download/v0.4.0/jj-desc-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "876ad5496f6d7a9724a2a8dcd8e5f7926884899c5bb31024b984365d7da2bb56"
+      url "https://github.com/tumf/jj-desc/releases/download/v0.4.3/jj-desc-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "cf8fed41f1622e7d62796c2dc5d836a27524e9cf0a83c27a231c8c8af37a4adf"
     end
   end
   license "MIT"
