@@ -1,0 +1,44 @@
+name: Bump formulas
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Bump xcom_rs
+        run: scripts/bump_xcom_rs.sh
+
+      - name: Tap this repository
+        run: brew tap "${GITHUB_REPOSITORY}" "${GITHUB_WORKSPACE}"
+
+      - name: Audit formula
+        run: brew audit --strict --online "${GITHUB_REPOSITORY}/xcom_rs"
+
+      - name: Test formula
+        run: |
+          brew install --build-from-source "${GITHUB_REPOSITORY}/xcom_rs"
+          brew test "${GITHUB_REPOSITORY}/xcom_rs"
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: "chore: bump formulas"
+          body: |
+            Automated formula bump.
+          commit-message: "chore: bump formulas"
+          branch: "automation/bump-formulas"
+          delete-branch: true
